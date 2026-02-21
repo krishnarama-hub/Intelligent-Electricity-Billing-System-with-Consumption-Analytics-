@@ -1,0 +1,138 @@
+import time
+print("----------------------------------------------------------------------------------------------------------------------------------------------------------------")
+print(" The Unit of the electricity come:")
+print("1.(0-100)")
+print("2.(101-200)")
+print("3.(Above 200)")
+user=int(input("enter the units of the electicity comes:"))
+if(user<100):
+    print("no charge(Free electricity)")
+elif(user<200):
+    bill=(user-100)*5
+elif(user>200):
+    bill=(user-200)*10
+else:
+    print("invalid input")
+print("----------------------------------------------------------------------------------------------------------------------------------------------------------------")
+
+print("The total bill for the user in per unit of charges:",bill)
+print("Detailed Bill Breakdown & Consumption Analytics")
+print("Unit consumption in each tier (pricing slabs)")
+
+print("----------------------------------------------------------------------------------------------------------------------------------------------------------------")
+# ----- Tier Initialization -----
+TIER1 = 0
+TIER2 = 0
+TIER3 = 0
+
+# ----- Validation -----
+if user <= 0:
+    print("Invalid input! Units must be positive.")
+    exit()
+if user <= 100:
+    bill = 0
+    TIER1 = 0
+    TIER2 = 0
+    TIER3 = 0
+
+elif user <= 200:
+    TIER2 = (user - 100) * 5
+    bill = TIER2
+
+else:
+    TIER2 = 100 * 5
+    TIER3 = (user - 200) * 10
+    bill = TIER2 + TIER3
+print("\n===== BILL BREAKDOWN =====")
+print("Tier 1 (0-100) charge:", TIER1)
+print("Tier 2 (101-200) charge:", TIER2)
+print("Tier 3 (200+) charge:", TIER3)
+print("----------------------------------------------------------------------------------------------------------------------------------------------------------------")
+print("Total Bill:", bill)
+
+print("----------------------------------------------------------------------------------------------------------------------------------------------------------------")
+print(" Intelligent Consumption Categorization")
+if(user<=150):
+    print("Low Consumption- Eco-Friendly User")
+elif(user<200):
+    print("“Average Consumption- Moderate User")
+else:
+    print("HIGHCONSUMPTION-ENERGYEFFICIENCYALERT!")
+print(" Smart Discount & Incentive System")
+print("Original Bill of user:",bill)
+print("----------------------------------------------------------------------------------------------------------------------------------------------------------------")
+
+if(user>150):
+    discount=bill*(10/100)
+    bill=bill-discount
+    print("Apply a 10%discount only for high consumption category users:",bill)
+else:
+    print("Your unit is below \"HEIGH CONSUMPTION\"")
+print("----------------------------------------------------------------------------------------------------------------------------------------------------------------")
+print("Low Consumption Level")
+print("""Switch Off & Unplug: Turn off lights when leaving a room and unplug devices (chargers, printers) that are not in use to stop vampire or standby energy drain.\n
+Optimal Temperature Settings: Set your thermostat to 25°C \(77°F\) in summer and lower it in winter.\n
+Natural Lighting & Ventilation: Open curtains during the day for light/heat, and use natural ventilation instead of air conditioning when possible.
+Efficient Laundry Habits: Wash clothes in cold water and only run full loads in the dishwasher and washing machine.
+Simple Maintenance: Clean the lint filter in your dryer after every use.""")
+print("----------------------------------------------------------------------------------------------------------------------------------------------------------------")
+print("""Medium Consumption Level (Average Household) """)
+print("----------------------------------------------------------------------------------------------------------------------------------------------------------------")
+print(""" Focus: Upgrading to efficient appliances, improving insulation, and optimizing lighting. 
+LED Lighting: Replace all traditional incandescent bulbs with LED bulbs, which use up to 90% less energy.
+Energy Star Appliances: When replacing appliances, choose Energy Star-certified models (fridges, washers, dryers) which can use 10% to 40% less energy.
+Smart Thermostat: Install a smart or programmable thermostat to automatically adjust temperatures based on your schedule, saving up to 8–10% on heating/cooling.
+Seal Air Leaks: Use caulk and weatherstripping to seal gaps around windows and doors to prevent heated/cooled air from escaping.
+Efficient Water Heating: Lower your water heater temperature to 120°F (50°C) and insulate hot water pipes. """)
+print("----------------------------------------------------------------------------------------------------------------------------------------------------------------")
+print("High Consumption Level (Large Home/Office/Industrial) ")
+print("----------------------------------------------------------------------------------------------------------------------------------------------------------------")
+print(""" Solar Panel Installation: Install solar PV systems to generate your own electricity, significantly reducing reliance on the grid.
+HVAC Upgrades: Upgrade to high-efficiency heat pumps for heating and cooling, which are more effective than standard electric resistance systems.
+Insulation Upgrade: Add comprehensive insulation to the attic, walls, floors, and crawlspaces.
+Window Replacement: Replace single-pane windows with double-pane or low-e (low-emissivity) windows to reduce heat gain/loss by up to 30%.
+Energy Audit: Hire a professional for an energy audit to identify specific, high-ROI opportunities for your building.
+Commercial/Industrial Specifics: Implement building management systems (BMS) for automated control of lighting and HVAC based on occupancy""")
+print("----------------------------------------------------------------------------------------------------------------------------------------------------------------")
+print("Comparative Consumption Analysis")
+print("----------------------------------------------------------------------------------------------------------------------------------------------------------------")
+month = time.strftime("%B")
+print("\nSeason detected:", month)
+print("----------------------------------------------------------------------------------------------------------------------------------------------------------------")
+
+if month in ["April", "May", "June", "July"]:
+    print("SUMMER RATES APPLIED ")
+    rate_multiplier = 1.10   
+    bill = bill * rate_multiplier
+else:
+    print("WINTER/NORMAL RATES ")
+print("----------------------------------------------------------------------------------------------------------------------------------------------------------------")
+
+hour=int(time.strftime("%H"))
+print("Peak/Off-Peak Hours: Apply time-based pricing logic")
+print("Current hour :",hour)
+if(hour>=18 and hour <=22):
+    print("PEAK HOUR CHARGES")
+    bill =bill+30
+else:
+    print("OFF-PEAK CHARGES APPLIES")
+print("----------------------------------------------------------------------------------------------------------------------------------------------------------------")
+
+print("Predictive Alert System")
+daily_avg=user/30
+month_predicition=daily_avg*30
+predicition_bill=(month_predicition/daily_avg)*bill
+print("Estimated next month units:",month_predicition)
+print("Estimated next month bills :",predicition_bill)
+print("----------------------------------------------------------------------------------------------------------------------------------------------------------------")
+
+print("\nSmart Recommendation System")
+print("----------------------------------------------------------------------------------------------------------------------------------------------------------------")
+
+if user > 250:
+    print("⚠ High usage detected! Reduce AC and peak-hour usage.")
+elif user > 150:
+    print("Moderate usage. Try switching to LED appliances.")
+else:
+    print("Great job! You are an energy saver ")
+    print("----------------------------------------------------------------------------------------------------------------------------------------------------------------")
