@@ -55,7 +55,7 @@ print(" Intelligent Consumption Categorization")
 if(user<=150):
     print("Low Consumption- Eco-Friendly User")
 elif(user<200):
-    print("“Average Consumption- Moderate User")
+    print("Average Consumption- Moderate User")
 else:
     print("HIGHCONSUMPTION-ENERGYEFFICIENCYALERT!")
 print(" Smart Discount & Incentive System")
